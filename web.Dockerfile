@@ -21,9 +21,9 @@ RUN apt-get -qq update && apt-get install -y \
   tzdata \
   && rm -r /var/lib/apt/lists/*
 WORKDIR /app
-COPY --from=builder /build/bin/Run .
+COPY --from=builder /build/bin/DNSUpdater .
 COPY --from=builder /build/lib/* /usr/lib/
 
 ENV ENVIRONMENT=$env
 
-ENTRYPOINT ./Run serve --env $ENVIRONMENT --hostname 0.0.0.0 --port 80
+ENTRYPOINT ./DNSUpdater serve --env $ENVIRONMENT --hostname 0.0.0.0 --port 80
