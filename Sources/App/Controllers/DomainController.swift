@@ -28,7 +28,10 @@ struct DomainController: RouteCollection {
                 request.http.contentType = MediaType.json
                 request.http.headers.bearerAuthorization = BearerAuthorization(token: apiKey)
             }
-            .flatMap { response in
+            .flatMap { response -> Future<ListDomainRecordsResponseContainer> in
+                guard 200...300 ~= response.http.status.code else {
+                    throw Abort(.internalServerError, reason: "List Records call to DigitalOcean API failed with: \(response.http.status.code)")
+                }
                 return try response.content.decode(ListDomainRecordsResponseContainer.self)
             }
 
@@ -43,6 +46,9 @@ struct DomainController: RouteCollection {
                 try request.content.encode(OutgoingUpdateRecordRequest(data: updateRecordRequest.ip))
             }
             .flatMap { response in
+                guard 200...300 ~= response.http.status.code else {
+                    throw Abort(.internalServerError, reason: "Update Record call to DigitalOcean API failed with: \(response.http.status.code)")
+                }
                 return try response.content.decode(UpdateDomainRecordsResponseContainer.self)
             }
         }

@@ -11,7 +11,7 @@ protocol EnvironmentProvider {
     var environmentVariables: [String: String] { get }
 }
 
-struct EnvironmentService: Service {
+struct EnvironmentService: Service, EnvironmentProvider {
     var environmentVariables = [String: String]()
 
     init(keys: [String]) throws {
