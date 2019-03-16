@@ -30,6 +30,7 @@ docker  run -it -d \
     -e USERNAME=john_doe \
     -e PASSWORD=change_this_to_some_secure_password \
     -e API_KEY=your_digitalocean_api_key \
+    -e ENVIRONMENT=production \
     --name dns-updater \
     ffittschen/dns-updater:latest
 ```
@@ -39,6 +40,7 @@ Alternatively, you can also create a `.env` file:
 USERNAME=john_doe
 PASSWORD=change_this_to_some_secure_password
 API_KEY=your_digitalocean_api_key
+ENVIRONMENT=production
 ```
 
 And then change the command to the following to use the `.env` file:
