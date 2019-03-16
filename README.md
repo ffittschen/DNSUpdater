@@ -1,14 +1,17 @@
 # DNSUpdater
 
 <p align="center">
-    <a href="https://hub.docker.com/r/ffittschen/dns-updater">
+    <a href="https://hub.docker.com/r/ffittschen/dns-updater" target="_blank" rel="noopener noreferrer">
         <img alt="Docker Cloud Build Status" src="https://img.shields.io/docker/cloud/build/ffittschen/dns-updater.svg">
     </a>
     <a href="LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-brightgreen.svg" alt="MIT License">
     </a>
-    <a href="https://swift.org">
+    <a href="https://swift.org" target="_blank" rel="noopener noreferrer">
         <img src="https://img.shields.io/badge/swift-4.2-brightgreen.svg" alt="Swift 4.2">
+    </a>
+    <a href="https://github.com/vapor/vapor" target="_blank" rel="noopener noreferrer">
+        <img src="https://img.shields.io/badge/Vapor-3-%2300b0ff.svg" alt="Vapor 3">
     </a>
 </p>
 
